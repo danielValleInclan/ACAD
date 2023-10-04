@@ -1,3 +1,5 @@
+package boletinfile;
+
 import java.io.File;
 
 public class T4BoletinFile {

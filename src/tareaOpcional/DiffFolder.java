@@ -42,7 +42,6 @@ public class DiffFolder {
                         } else {
                             resultados.add(new ResultadoComparacion(file1.getName(), ValorComparacion.MENOS_NUEVO_EN_1));
                         }
-                        break;
                     }
                 }
                 if (!encontrado) {
@@ -55,7 +54,6 @@ public class DiffFolder {
                 for (File file1 : files1) {
                     if (file2.getName().equals(file1.getName())) {
                         encontrado = true;
-                        break;
                     }
                 }
                 if (!encontrado) {

@@ -42,8 +42,7 @@ public class Ejercicio2 {
     public static void escribirFichero(double[][] arrayDouble, File file){
         int numFilas = arrayDouble.length;
         int numColumnas = arrayDouble[0].length;
-        try (DataOutputStream dataOS =
-                     new DataOutputStream(new FileOutputStream(file))){
+        try (DataOutputStream dataOS = new DataOutputStream(new FileOutputStream(file))){
             dataOS.writeInt(numFilas);
             dataOS.writeInt(numColumnas);
             dataOS.writeUTF("\n");

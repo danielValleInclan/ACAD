@@ -1,9 +1,12 @@
 package boletin3.ejercicio6;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 public class Pedido implements Serializable
 {
+    @Serial
+    private static final long serialVersionUID = 1L;
     private String desc;
     private int numUnits;
     private double price;

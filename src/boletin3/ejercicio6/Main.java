@@ -4,15 +4,25 @@ import java.io.*;
 
 public class Main
 {
-    public static void main(String[] args)
-    {
-        String nomFichero = "peidos.dat";
+    public static void main(String[] args) throws IOException {
+        String nomFichero = "pedidos.dat";
         Pedido pedido1 = new Pedido("Este es el pedido 1", 1, 5.99);
         Pedido pedido2 = new Pedido("Este es el pedido 2", 6, 4.99);
         Pedido pedido3 = new Pedido("Este es el pedido 3", 9, 0.50);
         Pedido[] pedidos = {pedido1, pedido2, pedido3};
         escribirPedidos(pedidos, nomFichero);
         leerPedidos(nomFichero);
+        Pedido pedido4 = new Pedido("Este es el pedido 4", 4, 20.00);
+        addPedido(pedido4, nomFichero);
+        System.out.println("Fichero después de añadir un pedido");
+        leerPedidos(nomFichero);
+
+    }
+
+    public static void addPedido(Pedido pedido, String nomFich) throws IOException {
+        File file = new File(nomFich);
+        ObjectOutputStream dataOOS = new MiObjectOutputStream(new FileOutputStream(file, true));
+        dataOOS.writeObject(pedido);
     }
 
     public static void leerPedidos(String nomFichero){
@@ -26,11 +36,8 @@ public class Main
           }
         } catch (EOFException e){
             System.out.println("Fin del fichero");
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        } catch (ClassNotFoundException e) {
+
+        } catch (ClassNotFoundException | IOException e) {
             throw new RuntimeException(e);
         }
     }

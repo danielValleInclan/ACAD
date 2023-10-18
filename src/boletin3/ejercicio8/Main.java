@@ -18,31 +18,6 @@ public class Main {
         escribirFich(nomFich, agenda);
         leerFich(nomFich);
     }
-/*
-    public static void addContacto(Contacto contacto, String nomFich){
-        Agenda agenda = null;
-        File file = new File(nomFich);
-        try (ObjectInputStream dataOIS = new ObjectInputStream(new FileInputStream(nomFich))){
-
-            while (true){
-                agenda = (Agenda) dataOIS.readObject();
-            }
-        } catch (EOFException e){
-            System.out.println("Fin fichero");
-        } catch (IOException e){
-            throw new RuntimeException();
-        } catch (ClassNotFoundException e) {
-            throw new RuntimeException(e);
-        }
-        agenda.list.add(contacto);
-        try (ObjectOutputStream dataOOS = new MiObjectOutputStream(new FileOutputStream(file, true))){
-            dataOOS.writeObject(agenda);
-        }catch (IOException e){
-            throw new RuntimeException();
-        }
-    }
-
- */
 
     public static void leerFich(String nomFich) {
 

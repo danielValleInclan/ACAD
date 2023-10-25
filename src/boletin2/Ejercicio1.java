@@ -6,11 +6,11 @@ import java.io.IOException;
 
 public class Ejercicio1 {
     public static void main(String[] args) {
-        String nombreFich = "";
+        StringBuilder nombreFich = new StringBuilder();
         for (String arg: args) {
-            nombreFich += arg;
+            nombreFich.append(arg);
         }
-        File fich = new File(nombreFich);
+        File fich = new File(nombreFich.toString());
         try (FileReader fr = new FileReader(fich)) {
             int i;
             while ((i = fr.read()) != -1){

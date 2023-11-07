@@ -61,37 +61,4 @@ atormentados que lo asustan.</sinopsis>
         <Fecha>1999</Fecha>
         <Director>M. Night Shyamalan</Director>
     </Pelicula>
-    <Pelicula>
-        <Titulo>Tesis</Titulo>
-        <Duracion>100</Duracion>
-        <Genero>Terror</Genero>
-        <Actores>
-            <Actor>Ana Torrent</Actor>
-            <Actor>Fele Martínez</Actor>
-        </Actores>
-        <Fecha>0</Fecha>
-        <Director>Amenabar</Director>
-    </Pelicula>
-    <Pelicula>
-        <Titulo>Tesis</Titulo>
-        <Duracion>100</Duracion>
-        <Genero>Terror</Genero>
-        <Actores>
-            <Actor>Ana Torrent</Actor>
-            <Actor>Fele Martínez</Actor>
-        </Actores>
-        <Fecha>0</Fecha>
-        <Director>Amenabar</Director>
-    </Pelicula>
-    <Pelicula>
-        <Titulo>Tesis</Titulo>
-        <Duracion>100</Duracion>
-        <Genero>Terror</Genero>
-        <Actores>
-            <Actor>Ana Torrent</Actor>
-            <Actor>Fele Martínez</Actor>
-        </Actores>
-        <Fecha>0</Fecha>
-        <Director>Amenabar</Director>
-    </Pelicula>
 </CatalogoPeliculas>

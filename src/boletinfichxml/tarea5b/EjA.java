@@ -14,6 +14,8 @@ import javax.xml.transform.stream.StreamResult;
 import java.util.Scanner;
 
 public class EjA {
+    static int numero, victorias;
+    static String escuderia, nombre;
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int op = 0;
@@ -29,57 +31,82 @@ public class EjA {
                 System.out.println("*** Elije una opción correcta ***");
             }
         } while (op < 1 || op > 3);
+        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+        DocumentBuilder builder;
+        try {
+            builder = factory.newDocumentBuilder();
+            DOMImplementation implementation = builder.getDOMImplementation();
+            Document document = implementation.createDocument(null, "Pilotos", null);
+            document.setXmlVersion("1.0");
+            insertarTeclado();
+            Source source = new DOMSource(document);
+            Result result = new StreamResult(new java.io.File("Pilotos.xml"));
+            Transformer transformer = TransformerFactory.newInstance().newTransformer();
+            transformer.transform(source, result);
+        } catch (ParserConfigurationException e) {
+            throw new RuntimeException(e);
+        }
 
+        DOMImplementation implementation = builder.getDOMImplementation();
+        Document document = implementation.createDocument(null, "Pilotos", null);
+        document.setXmlVersion("1.0");
         switch (op){
             case 1:
-                DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+                insertarTeclado(sc);
+                break;
+            case 2:
 
-                int numero, victorias;
-                String escuderia, nombre;
-
-                DocumentBuilder builder;
-                try {
-                    builder = factory.newDocumentBuilder();
-
-                    DOMImplementation implementation = builder.getDOMImplementation();
-                    Document document = implementation.createDocument(null, "Pilotos", null);
-                    document.setXmlVersion("1.0");
-                    System.out.println("Número de pilotos ha introducir -> ");
-                    int numPilotos = sc.nextInt();
-                    for (int i = 0; i < numPilotos; i++) {
-                        System.out.println("Nombre del piloto -> ");
-                        nombre = sc.next();
-                        System.out.println("Escudería del piloto -> ");
-                        escuderia = sc.next();
-                        System.out.println("Número del piloto -> ");
-                        numero = sc.nextInt();
-                        System.out.println("Victorias del piloto -> ");
-                        victorias = sc.nextInt();
-                        if (numero > 0){
-                            Element raiz = document.createElement("piloto");
-                            document.getDocumentElement().appendChild(raiz);
-                            //añadir numero
-                            crearElemento("numero", Integer.toString(numero), raiz, document);
-                            //añadir nombre
-                            crearElemento("nombre", nombre, raiz, document);
-                            //añadir escuderia
-                            crearElemento("escuderia", escuderia, raiz, document);
-                            //añadir victorias
-                            crearElemento("victorias", Integer.toString(victorias), raiz, document);
-                        }
-                    }
-                    Source source = new DOMSource(document);
-                    Result result = new StreamResult(new java.io.File("Pilotos.xml"));
-                    Transformer transformer = TransformerFactory.newInstance().newTransformer();
-                    transformer.transform(source, result);
-                } catch (ParserConfigurationException | TransformerException e) {
-                    throw new RuntimeException(e);
-                }
                 break;
             default:
                 break;
         }
     }
+    static void medianteCodigo(){
+
+    }
+    public static void insertarTeclado(Scanner sc){
+        DocumentBuilder builder;
+        try {
+            builder = factory.newDocumentBuilder();
+
+            DOMImplementation implementation = builder.getDOMImplementation();
+            Document document = implementation.createDocument(null, "Pilotos", null);
+            document.setXmlVersion("1.0");
+            // A partir de aqui cambia
+            System.out.println("Número de pilotos ha introducir -> ");
+            int numPilotos = sc.nextInt();
+            for (int i = 0; i < numPilotos; i++) {
+                System.out.println("Nombre del piloto -> ");
+                nombre = sc.next();
+                System.out.println("Escudería del piloto -> ");
+                escuderia = sc.next();
+                System.out.println("Número del piloto -> ");
+                numero = sc.nextInt();
+                System.out.println("Victorias del piloto -> ");
+                victorias = sc.nextInt();
+                if (numero > 0){
+                    Element raiz = document.createElement("piloto");
+                    document.getDocumentElement().appendChild(raiz);
+                    //añadir numero
+                    crearElemento("numero", Integer.toString(numero), raiz, document);
+                    //añadir nombre
+                    crearElemento("nombre", nombre, raiz, document);
+                    //añadir escuderia
+                    crearElemento("escuderia", escuderia, raiz, document);
+                    //añadir victorias
+                    crearElemento("victorias", Integer.toString(victorias), raiz, document);
+                }
+            }
+            // Aqui acaba
+            Source source = new DOMSource(document);
+            Result result = new StreamResult(new java.io.File("Pilotos.xml"));
+            Transformer transformer = TransformerFactory.newInstance().newTransformer();
+            transformer.transform(source, result);
+        } catch (ParserConfigurationException | TransformerException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     static void crearElemento(String datoPiloto, String valor, Element raiz, Document document){
         Element element = document.createElement(datoPiloto);
         Text text = document.createTextNode(valor); //damos valor

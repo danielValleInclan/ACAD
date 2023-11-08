@@ -33,23 +33,24 @@ public class GestionContenido1 extends DefaultHandler {
     }
 
     public void characters(char[] ch, int inicio , int longitud) throws SAXException {
+        String car;
         if (isTitle){
-            String car = new String(ch, inicio, longitud);
+            car = new String(ch, inicio, longitud);
             car = car.replaceAll("[\t\n]", "");
             System.out.printf("\t Titulo: %s %n", car);
             isTitle = false;
         } else if (isDate) {
-            String car = new String(ch, inicio, longitud);
+            car = new String(ch, inicio, longitud);
             car = car.replaceAll("[\t\n]", "");
             System.out.printf("\t Fecha: %s %n", car);
             isDate = false;
         } else if (isActor) {
-            String car = new String(ch, inicio, longitud);
+            car = new String(ch, inicio, longitud);
             car = car.replaceAll("[\t\n]", "");
             System.out.printf("\t Actor: %s %n", car);
             isActor = false;
         } else if (isDirector) {
-            String car = new String(ch, inicio, longitud);
+            car = new String(ch, inicio, longitud);
             car = car.replaceAll("[\t\n]", "");
             System.out.printf("\t Actor: %s %n", car);
             isDirector = false;

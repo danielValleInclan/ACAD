@@ -1,4 +1,4 @@
-package boletinfichxml.voluntaria;
+package boletinfichxml.voluntarias.factura;
 
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;

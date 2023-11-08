@@ -1,4 +1,4 @@
-package boletinfichxml.act6;
+package boletinfichxml.voluntaria;
 
 import boletinfichxml.sax.ej.GestionContenido;
 import org.xml.sax.InputSource;
@@ -10,8 +10,8 @@ import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 import java.io.IOException;
 
-public class Act2 {
-    public static void main(String[] args) {
+public class Voluntaria {
+    public static void main(String[] args) throws SAXException, IOException {
         SAXParserFactory parserFactory = SAXParserFactory.newInstance();
         SAXParser parser;
         try {
@@ -19,11 +19,11 @@ public class Act2 {
             //se crea un procesador de XML
             XMLReader procesadorXML = parser.getXMLReader();
             // hay que indicarle al procesador XML que objeto tiene los métodos que van a tratar los eventos
-            GestionContenido2 gestor = new GestionContenido2();
+            GestionFactura gestor = new GestionFactura();
             procesadorXML.setContentHandler(gestor);
-            InputSource fileXML = new InputSource("Act2.xml");
+            InputSource fileXML = new InputSource("factura.xml");
             procesadorXML.parse(fileXML);
-        } catch (ParserConfigurationException | SAXException | IOException e) {
+        } catch (ParserConfigurationException e) {
             throw new RuntimeException(e);
         }
     }

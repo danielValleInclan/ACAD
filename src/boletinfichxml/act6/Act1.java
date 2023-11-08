@@ -19,9 +19,9 @@ public class Act1 {
             //se crea un procesador de XML
             XMLReader procesadorXML = parser.getXMLReader();
             // hay que indicarle al procesador XML que objeto tiene los métodos que van a tratar los eventos
-            GestionContenido gestor = new GestionContenido();
+            GestionContenido1 gestor = new GestionContenido1();
             procesadorXML.setContentHandler(gestor);
-            InputSource fileXML = new InputSource("Empleados.xml");
+            InputSource fileXML = new InputSource("peliculas.xml");
             procesadorXML.parse(fileXML);
         } catch (ParserConfigurationException | SAXException | IOException e) {
             throw new RuntimeException(e);

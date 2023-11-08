@@ -1,0 +1,107 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Portada</title>
+        <link>https://www.europapress.es/</link>
+        <description>Portada</description>
+        <image>
+            <url>https://s01.europapress.net/imagenes/estaticos/eplogo.gif</url>
+            <title>Portada</title>
+            <link>https://www.europapress.es/</link>
+        </image>
+        <language>es-ES</language>
+        <copyright>(C) 2023 Europa Press.</copyright>
+        <lastBuildDate>Wed, 08 Nov 2023 07:59:47 GMT</lastBuildDate>
+        <ttl>15</ttl>
+        <item>
+            <title>Más de 7.000 personas en el segundo día consecutivo de protesta en Ferraz que termina con cargas policiales</title>
+            <link>https://www.europapress.es/nacional/noticia-mas-7000-personas-segundo-dia-consecutivo-protestas-ferraz-blindada-fuerte-cordon-policial-20231107220212.html</link>
+            <description>Más de 7000 personas, según datos de Delegación del Gobierno, se han congregado por segundo día consecutivo en la calle Ferraz, donde se ubica la sede nacional del PSOE, con un fuerte cordón policial de efectivos de la UIP y lanzando proclamas contra el Gobierno por sus pactos con los independentistas y la ley de amnistía.</description>
+            <enclosure url="https://img.europapress.es/fotoweb/fotonoticia_20231107220212_120.jpg" length="4096" type="image/jpeg"/>
+            <guid isPermaLink="true">https://www.europapress.es/nacional/noticia-mas-7000-personas-segundo-dia-consecutivo-protestas-ferraz-blindada-fuerte-cordon-policial-20231107220212.html</guid>
+            <pubDate>Tue, 07 Nov 2023 21:02:12 GMT</pubDate>
+            <category>Nacional</category>
+        </item>
+        <item>
+            <title>PSOE y Junts siguen sin llegar a un acuerdo tras una noche de negociaciones "intensas"</title>
+            <link>https://www.europapress.es/nacional/noticia-psoe-junts-siguen-llegar-acuerdo-noche-negociaciones-intensas-20231108085258.html</link>
+            <description> Los negociadores de Junts y del PSOE siguen sin llegar a un acuerdo sobre la ley de amnistía a primera hora de este miércoles tras una noche de negociaciones "intensas", lo que complica la investidura de Pedro Sánchez como presidente del Gobierno esta semana.</description>
+            <enclosure url="https://img.europapress.es/fotoweb/fotonoticia_20231108085258_120.jpg" length="4096" type="image/jpeg"/>
+            <guid isPermaLink="true">https://www.europapress.es/nacional/noticia-psoe-junts-siguen-llegar-acuerdo-noche-negociaciones-intensas-20231108085258.html</guid>
+            <pubDate>Wed, 08 Nov 2023 07:52:58 GMT</pubDate>
+            <category>Nacional</category>
+        </item>
+        <item>
+            <title>El TS rechaza suspender el trámite de la futura ley de amnistía y advierte de que puede no ser asunto de su competencia</title>
+            <link>https://www.europapress.es/nacional/noticia-ts-rechaza-suspender-tramite-futura-ley-amnistia-advierte-puede-no-ser-asunto-competencia-20231107161427.html</link>
+            <description> El Tribunal Supremo ha rechazado este martes suspender de forma inmediata el procedimiento de aprobación de la ley de amnistía --que negocia PSOE y Junts--, tal y como solicitaba la Asociación por la Reconciliación y la Verdad Histórica en un recurso en el que consideraba que esa futura norma supone una vulneración grave de los derechos fundamentales y un fraude de ley.</description>
+            <enclosure url="https://img.europapress.es/fotoweb/fotonoticia_20231107161427_120.jpg" length="4096" type="image/jpeg"/>
+            <guid isPermaLink="true">https://www.europapress.es/nacional/noticia-ts-rechaza-suspender-tramite-futura-ley-amnistia-advierte-puede-no-ser-asunto-competencia-20231107161427.html</guid>
+            <pubDate>Tue, 07 Nov 2023 15:14:27 GMT</pubDate>
+            <category>Nacional</category>
+        </item>
+        <item>
+            <title>Gamarra admite actos condenables en las protestas ante Ferraz pero dice que el PP no usa el 'Pásalo' del PSOE en 2004</title>
+            <link>https://www.europapress.es/nacional/noticia-gamarra-admite-actos-condenables-protestas-ferraz-dice-pp-no-usa-pasalo-psoe-2004-20231107152132.html</link>
+            <description>Responde a Isabel Rodríguez que Feijóo fue el más votado y es Sánchez, que "perdió las elecciones", el que "no asume el resultado"</description>
+            <enclosure url="https://img.europapress.es/fotoweb/fotonoticia_20231107152132_120.jpg" length="4096" type="image/jpeg"/>
+            <guid isPermaLink="true">https://www.europapress.es/nacional/noticia-gamarra-admite-actos-condenables-protestas-ferraz-dice-pp-no-usa-pasalo-psoe-2004-20231107152132.html</guid>
+            <pubDate>Tue, 07 Nov 2023 14:21:32 GMT</pubDate>
+            <category>Nacional</category>
+        </item>
+        <item>
+            <title>Guerra Israel-Hamás en Gaza | Directo: 9 muertos en otro bombardeo israelí contra el campamento de refugiados de Yabalia</title>
+            <link>https://www.europapress.es/internacional/noticia-guerra-israel-hamas-gaza-directo-ultimas-noticias-hoy-20231105084754.html</link>
+            <description>El comisario europeo de Gestión de Crisis, Janez Lenarcic, ha reclamado a Israel y Hamás que establezcan una tregua humanitaria en Gaza y mejoren el acceso humanitario a la Franja para permitir un mayor flujo de ayuda a los palestinos frente a la emergencia provocada por la ofensiva israelí tras los ataques terroristas del pasado 7 de octubre.</description>
+            <guid isPermaLink="true">https://www.europapress.es/internacional/noticia-guerra-israel-hamas-gaza-directo-ultimas-noticias-hoy-20231105084754.html</guid>
+            <pubDate>Sun, 05 Nov 2023 07:47:54 GMT</pubDate>
+            <category>Internacional</category>
+        </item>
+        <item>
+            <title>El G7 pedirá una "pausa humanitaria" en la Franja de Gaza para permitir el envío de ayuda</title>
+            <link>https://www.europapress.es/internacional/noticia-g7-pedira-pausa-humanitaria-franja-gaza-permitir-envio-ayuda-20231108072532.html</link>
+            <description>Los ministros de Exteriores reafirman su postura respecto a Ucrania, que no cambiará a pesar del "desvío de la atención" a Oriente Próximo</description>
+            <enclosure url="https://img.europapress.es/fotoweb/fotonoticia_20231108072532_120.jpg" length="4096" type="image/jpeg"/>
+            <guid isPermaLink="true">https://www.europapress.es/internacional/noticia-g7-pedira-pausa-humanitaria-franja-gaza-permitir-envio-ayuda-20231108072532.html</guid>
+            <pubDate>Wed, 08 Nov 2023 06:25:32 GMT</pubDate>
+            <category>Internacional</category>
+        </item>
+        <item>
+            <title>La Policía detiene a 14 personas vinculadas con un movimiento integrista paquistaní por delitos de terrorismo</title>
+            <link>https://www.europapress.es/nacional/noticia-policia-detiene-14-personas-vinculadas-movimiento-integrista-paquistani-delitos-terrorismo-20231107185923.html</link>
+            <description>La Policía Nacional ha detenido a 14 personas en distintos puntos de la geografía española por la comisión de presuntos delitos de terrorismo, en una operación coordinada por el juez de la Audiencia Nacional Joaquín Gadea, según las fuentes jurídicas consultadas por Europa Press.</description>
+            <enclosure url="https://img.europapress.es/fotoweb/fotonoticia_20231107185923_120.jpg" length="4096" type="image/jpeg"/>
+            <guid isPermaLink="true">https://www.europapress.es/nacional/noticia-policia-detiene-14-personas-vinculadas-movimiento-integrista-paquistani-delitos-terrorismo-20231107185923.html</guid>
+            <pubDate>Tue, 07 Nov 2023 17:59:23 GMT</pubDate>
+            <category>Nacional</category>
+        </item>
+        <item>
+            <title>António Costa se despide en Portugal tras siete años en los que ha consolidado al Partido Socialista</title>
+            <link>https://www.europapress.es/internacional/noticia-antonio-costa-despide-portugal-siete-anos-consolidado-partido-socialista-20231107161735.html</link>
+            <description> Una investigación por presuntos delitos de prevaricación, corrupción y tráfico de influencias relativa a la concesión de proyectos empresariales ha puesto este martes punto y final a la etapa del socialista António Costa como líder del Gobierno en Portugal. El exalcalde de Lisboa, que dio el salto al principal cargo político del país en 2015, deja al Partido Socialista con una mayoría absoluta en el Parlamento, una 'rara avis' en una Europa marcada por la fragmentación.</description>
+            <enclosure url="https://img.europapress.es/fotoweb/fotonoticia_20231107161735_120.jpg" length="4096" type="image/jpeg"/>
+            <guid isPermaLink="true">https://www.europapress.es/internacional/noticia-antonio-costa-despide-portugal-siete-anos-consolidado-partido-socialista-20231107161735.html</guid>
+            <pubDate>Tue, 07 Nov 2023 15:17:35 GMT</pubDate>
+            <category>Internacional</category>
+        </item>
+        <item>
+            <title>Luis Mateo Díez gana el premio Cervantes</title>
+            <link>https://www.europapress.es/cultura/libros-00132/noticia-luis-mateo-diez-gana-premio-cervantes-20231107183009.html</link>
+            <description>El jurado del Premio de Literatura en Lengua Castellana 'Miguel de Cervantes', correspondiente a 2023, ha elegido a Luis Mateo Díez como ganador de la edición de este año. El premio está dotado con 125.000 euros y constituye el más prestigioso galardón de las letras en español.</description>
+            <enclosure url="https://img.europapress.es/fotoweb/fotonoticia_20231107183009_120.jpg" length="4096" type="image/jpeg"/>
+            <guid isPermaLink="true">https://www.europapress.es/cultura/libros-00132/noticia-luis-mateo-diez-gana-premio-cervantes-20231107183009.html</guid>
+            <pubDate>Tue, 07 Nov 2023 17:30:09 GMT</pubDate>
+            <category>Cultura</category>
+            <category>Libros</category>
+        </item>
+        <item>
+            <title>La ESA exhibe las primeras imágenes del telescopio espacial Euclid</title>
+            <link>https://www.europapress.es/ciencia/misiones-espaciales/noticia-exhibe-primeras-imagenes-telescopio-espacial-euclid-20231107143001.html</link>
+            <description>   La ESA ha publicado las primeras imágenes a todo color del cosmos tomadas con el falamente telescopio espacial Euclid, sin precedentes por su nitidez en una zona tan grande y distante del Universo.</description>
+            <enclosure url="https://img.europapress.es/fotoweb/fotonoticia_20231107143001_120.jpg" length="4096" type="image/jpeg"/>
+            <guid isPermaLink="true">https://www.europapress.es/ciencia/misiones-espaciales/noticia-exhibe-primeras-imagenes-telescopio-espacial-euclid-20231107143001.html</guid>
+            <pubDate>Tue, 07 Nov 2023 13:30:01 GMT</pubDate>
+            <category>Ciencia</category>
+            <category>Misiones Espaciales</category>
+        </item>
+    </channel>
+</rss>

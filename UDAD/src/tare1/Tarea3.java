@@ -1,4 +1,4 @@
-package tarea1;
+package tare1;
 
 import java.sql.*;
 import java.time.LocalDate;

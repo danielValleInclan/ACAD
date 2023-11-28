@@ -15,15 +15,74 @@ WHERE e.emp_no = p.proyecto_no
 ORDER BY e.apellido;
 
 4- Mostrar el número de horas que se han trabajado en cada proyecto. Debes mostrar también a qué proyecto corresponde cada total de horas, y mostrarlas ordenadas de mayor a menor número de horas.
-5- Mostrar los datos de los empleados cuyo apellido empieza por A, y cuyo salario sea mayor que 1000.
-6- Mostrar los empleados con fecha de alta anterior al 02/01/1997.
-7- Mostrar los números de proyectos (sin repetir) en los que ha participado algún empleado con fecha de alta entre el 1990 y el 2000.
-8- Obtener los apellidos de los empleados que no pertenecen al departamento de CONTABILIDAD ni al de VENTAS.
-9- Mostrar los datos del empleado que ha trabajado menos horas en algún proyecto.
-10- Mostrar los datos de los empleados y sus proyectos, hayan trabajado o no en alguno.
-11- Mostrar los proyectos y los datos de los empleados que han trabajado en ellos.
-12- Mostrar el número de horas totales que ha trabajado el empleado que más horas ha trabajado en el total de sus proyectos.
-13- Máximo número de proyectos en los que ha trabajado un empleado.
-14- Mostrar los datos de los empleados que son directores.
-15- Mostrar los datos de los empleados que tienen director, junto con los datos de su director.
-16- Mostrar los datos de los empleados que no tienen un director perteneciente al departamento 20.
+
+
+-- 5. Mostrar los datos de los empleados cuyo apellido empieza por A y cuyo salario sea mayor que 1000.
+SELECT *
+FROM empleados
+WHERE apellido LIKE 'A%' AND salario > 1000;
+
+-- 6. Mostrar los empleados con fecha de alta anterior al 02/01/1997.
+SELECT *
+FROM empleados
+WHERE fecha_alta < '1997-02-01';
+
+-- 7. Mostrar los números de proyectos (sin repetir) en los que ha participado algún empleado con fecha de alta entre 1990 y 2000.
+SELECT DISTINCT numero_proyecto
+FROM participaciones
+WHERE id_empleado IN (SELECT id_empleado FROM empleados WHERE fecha_alta BETWEEN '1990-01-01' AND '2000-12-31');
+
+-- 8. Obtener los apellidos de los empleados que no pertenecen al departamento de CONTABILIDAD ni al de VENTAS.
+SELECT apellido
+FROM empleados
+WHERE departamento NOT IN ('CONTABILIDAD', 'VENTAS');
+
+-- 9. Mostrar los datos del empleado que ha trabajado menos horas en algún proyecto.
+SELECT *
+FROM empleados
+WHERE id_empleado IN (SELECT id_empleado
+                     FROM participaciones
+                     GROUP BY id_empleado
+                     ORDER BY SUM(horas_trabajadas)
+                     LIMIT 1);
+
+-- 10. Mostrar los datos de los empleados y sus proyectos, hayan trabajado o no en alguno.
+SELECT e.*, p.*
+FROM empleados e
+LEFT JOIN participaciones p ON e.id_empleado = p.id_empleado;
+
+-- 11. Mostrar los proyectos y los datos de los empleados que han trabajado en ellos.
+SELECT p.*, e.*
+FROM proyectos p
+INNER JOIN participaciones pa ON p.numero_proyecto = pa.numero_proyecto
+INNER JOIN empleados e ON pa.id_empleado = e.id_empleado;
+
+-- 12. Mostrar el número de horas totales que ha trabajado el empleado que más horas ha trabajado en el total de sus proyectos.
+SELECT id_empleado, SUM(horas_trabajadas) AS horas_totales
+FROM participaciones
+GROUP BY id_empleado
+ORDER BY horas_totales DESC
+LIMIT 1;
+
+-- 13. Máximo número de proyectos en los que ha trabajado un empleado.
+SELECT id_empleado, COUNT(numero_proyecto) AS proyectos_trabajados
+FROM participaciones
+GROUP BY id_empleado
+ORDER BY proyectos_trabajados DESC
+LIMIT 1;
+
+-- 14. Mostrar los datos de los empleados que son directores.
+SELECT *
+FROM empleados
+WHERE cargo = 'DIRECTOR';
+
+-- 15. Mostrar los datos de los empleados que tienen director, junto con los datos de su director.
+SELECT e.*, d.*
+FROM empleados e
+INNER JOIN empleados d ON e.id_director = d.id_empleado;
+
+-- 16. Mostrar los datos de los empleados que no tienen un director perteneciente al departamento 20.
+SELECT e.*
+FROM empleados e
+LEFT JOIN empleados d ON e.id_director = d.id_empleado
+WHERE d.departamento != 20 OR d.departamento IS NULL;

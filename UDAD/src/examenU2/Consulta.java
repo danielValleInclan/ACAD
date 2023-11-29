@@ -45,8 +45,13 @@ public class Consulta {
                         cliente.getEdad(),
                         cliente.getSexo());
             }
-        } catch (SQLException | ClassNotFoundException e) {
-            throw new RuntimeException(e);
+        } catch (SQLException e) {
+            System.out.println("HA OCURRIDO UNA EXCEPCIÓN:");
+            System.out.println("Mensaje: " + e.getMessage());
+            System.out.println("SQL estado: " + e.getSQLState());
+            System.out.println("Cód error: " + e.getErrorCode());
+        }catch (ClassNotFoundException e){
+            System.out.println(e.getMessage());
         }
     }
     public void opcion2(){
@@ -66,7 +71,7 @@ public class Consulta {
             ResultSet resultSet = statement.executeQuery(sql);
             // Recorremos el resultado para visualizar cada fila
             // Se hace un bucle mientras haya registros y se van visualizando
-            System.out.print(" \t Número de clientes : ");
+            System.out.print("\n \t Número de clientes : ");
             while (resultSet.next()){
                 System.out.printf("%d %n",
                         resultSet.getInt(1));
@@ -74,8 +79,13 @@ public class Consulta {
             resultSet.close();// Cerrar resultado
             statement.close();// Cerrar statement
             connection.close();// Cerrar conexion
-        } catch (ClassNotFoundException | SQLException e) {
-            throw new RuntimeException(e);
+        } catch (SQLException e) {
+            System.out.println("HA OCURRIDO UNA EXCEPCIÓN:");
+            System.out.println("Mensaje: " + e.getMessage());
+            System.out.println("SQL estado: " + e.getSQLState());
+            System.out.println("Cód error: " + e.getErrorCode());
+        }catch (ClassNotFoundException e){
+            System.out.println(e.getMessage());
         }
     }
 
@@ -101,8 +111,13 @@ public class Consulta {
                         rs.getInt(4));
             }
             System.out.println();
-        } catch (SQLException | ClassNotFoundException e) {
-            throw new RuntimeException(e);
+        }  catch (SQLException e) {
+            System.out.println("HA OCURRIDO UNA EXCEPCIÓN:");
+            System.out.println("Mensaje: " + e.getMessage());
+            System.out.println("SQL estado: " + e.getSQLState());
+            System.out.println("Cód error: " + e.getErrorCode());
+        }catch (ClassNotFoundException e){
+            System.out.println(e.getMessage());
         }
     }
 
@@ -140,8 +155,13 @@ public class Consulta {
             }
             statement.close();
             connection.close();
-        } catch (SQLException | ClassNotFoundException e) {
-            throw new RuntimeException(e);
+        }  catch (SQLException e) {
+            System.out.println("HA OCURRIDO UNA EXCEPCIÓN:");
+            System.out.println("Mensaje: " + e.getMessage());
+            System.out.println("SQL estado: " + e.getSQLState());
+            System.out.println("Cód error: " + e.getErrorCode());
+        }catch (ClassNotFoundException e){
+            System.out.println(e.getMessage());
         }
     }
 
@@ -153,22 +173,19 @@ public class Consulta {
             // Establecer conexion
             Connection connection = DriverManager.getConnection(url, usuario, passwd);
             connection.setAutoCommit(false);
-            try {
-                insertarProg(24, "PRUEBA_PROG", "VER", 2.00, connection);
-                insertarProg(10, "PRUEBA_PROG_2", "VER", 2.00, connection);
-                insertarFabr(10, "Fab_prueba", "ESPANA", connection);
-                insertarDes(21, 10, connection);
-                insertarDes(22, 10, connection);
-                connection.commit();
-            } catch (SQLException e){
-                connection.rollback();
-                System.out.println("##################################");
-                System.out.println("No se ha podido realizar la operación haciendo rollback");
-                System.out.println("##################################");
-                //throw new SQLException();
-            }
-        } catch (SQLException | ClassNotFoundException e) {
-            throw new RuntimeException(e);
+            insertarProg(24, "PRUEBA_PROG", "VER", 2.00, connection);
+            insertarProg(10, "PRUEBA_PROG_2", "VER", 2.00, connection);
+            insertarFabr(10, "Fab_prueba", "ESPANA", connection);
+            insertarDes(21, 10, connection);
+            insertarDes(22, 10, connection);
+            connection.commit();
+        }  catch (SQLException e) {
+            System.out.println("HA OCURRIDO UNA EXCEPCIÓN:");
+            System.out.println("Mensaje: " + e.getMessage());
+            System.out.println("SQL estado: " + e.getSQLState());
+            System.out.println("Cód error: " + e.getErrorCode());
+        }catch (ClassNotFoundException e){
+            System.out.println(e.getMessage());
         }
         System.out.println();
     }
@@ -214,6 +231,10 @@ public class Consulta {
 
     private String elejirComercio(){
         String opcion;
+
+        Boolean comprobar = false;
+        ArrayList<String> ciudades = new ArrayList<>(); // Para comprobar que la ciudad introducida es correcta
+
         Scanner sc = new Scanner(System.in);
         try {
             // Crear driver
@@ -227,18 +248,34 @@ public class Consulta {
             // Recorremos el resultado para visualizar cada fila
             // Se hace un bucle mientras haya registros y se van visualizando
             while (resultSet.next()){
+                String ciudad = resultSet.getString(3);
                 System.out.printf("%s %n",
-                        resultSet.getString(3));
+                        ciudad);
+                ciudades.add(ciudad);
             }
             resultSet.close();// Cerrar resultado
             statement.close();// Cerrar statement
             connection.close();// Cerrar conexion
-        } catch (ClassNotFoundException | SQLException e) {
-            throw new RuntimeException(e);
+        }  catch (SQLException e) {
+            System.out.println("HA OCURRIDO UNA EXCEPCIÓN:");
+            System.out.println("Mensaje: " + e.getMessage());
+            System.out.println("SQL estado: " + e.getSQLState());
+            System.out.println("Cód error: " + e.getErrorCode());
+        }catch (ClassNotFoundException e){
+            System.out.println(e.getMessage());
         }
 
-        System.out.print("Elije una ciudad  -> ");
-        opcion = sc.next();
+        do { // comprueba que la ciudad es correcta
+            System.out.print("Elije una ciudad  -> ");
+            opcion = sc.next();
+            for (String s: ciudades){
+                if (s.equals(opcion)) {
+                    comprobar = true;
+                    break;
+                } else System.out.println("Inserta una ciudad correcta");
+            }
+        } while (!comprobar);
+
         return opcion;
     }
 }

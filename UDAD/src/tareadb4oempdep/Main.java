@@ -1,11 +1,10 @@
 package tareadb4oempdep;
-
+/*
 import com.db4o.Db4oEmbedded;
 import com.db4o.ObjectContainer;
 import com.db4o.ObjectSet;
 
 import java.util.Arrays;
-
 public class Main {
 
     final static String DBEmpDep = "/home/daniel/Escritorio/acad/EMPLEDEP.yap";
@@ -34,3 +33,4 @@ public class Main {
         db.close();
     }
 }
+ */

@@ -8,8 +8,8 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="mysql-connector-java-8.0.30" level="project" />
-    <orderEntry type="library" name="db4o-8.0.276.16149-all-java5" level="project" />
     <orderEntry type="library" name="lib" level="project" />
     <orderEntry type="library" name="sqlite-jdbc-3.31.1" level="project" />
+    <orderEntry type="library" name="hsqldb-2.6.0" level="project" />
   </component>
 </module>

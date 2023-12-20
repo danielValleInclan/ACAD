@@ -42,15 +42,15 @@ public class Reunion {
     // reunion, y la FK correspondiente
     // Cuando recupero una reunión, ¿quiero que se traiga todos los datos de la
     // Sala? Si la respuesta es sí-> fetch EAGER (peligroso), si no, LAZY
-//    @ManyToOne(fetch = FetchType.LAZY)
-//    @JoinColumn(name="sala", foreignKey=@ForeignKey(name="FK_SALA"))
-//    //private Sala sala;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="sala", foreignKey=@ForeignKey(name="FK_SALA"))
+    private Sala sala;
 //
 //    @OneToOne(mappedBy = "reunion")
 //    //private Acta acta;
 //
-//    // Utilizamos Set en vez de List porque las listas en Java tienen
-//    // una connotación de orden que ahora mismo no nos interesa
+    // Utilizamos Set en vez de List porque las listas en Java tienen
+    // una connotación de orden que ahora mismo no nos interesa
 //
 //    // CascadeType.ALL=decirle al sistema que cuando cree la reunión
 //    // también tiene que crear a las personas.
@@ -68,12 +68,12 @@ public class Reunion {
         this.asunto = asunto;
     }
 
-//    public Reunion(LocalDateTime fecha, String asunto, Sala sala) {
-//        this();
-//        this.fecha = fecha;
-//        this.asunto = asunto;
-//        sala.addReunion(this);
-//    }
+    public Reunion(LocalDateTime fecha, String asunto, Sala sala) {
+        this();
+        this.fecha = fecha;
+        this.asunto = asunto;
+        sala.addReunion(this);
+    }
 
 //	public Reunion(Reunion r) {
 //		this();
@@ -105,16 +105,16 @@ public class Reunion {
         this.asunto = asunto;
     }
 
-//    public Sala getSala() {
-//        return sala;
-//    }
-//
-//    public void setSala(Sala sala) {
-//        this.sala = sala;
-//        if(sala!=null && !sala.containsReunion(this)) {
-//            sala.addReunion(this);
-//        }
-//    }
+    public Sala getSala() {
+        return sala;
+    }
+
+    public void setSala(Sala sala) {
+        this.sala = sala;
+        if(sala!=null && !sala.containsReunion(this)) {
+            sala.addReunion(this);
+        }
+    }
 
 //    public Acta getActa() {
 //        return acta;
@@ -144,10 +144,11 @@ public class Reunion {
 //        }
 //    }
 
-//    @Override
-//    public String toString() {
-//        return "Reunion [id=" + id + ", fecha=" + fecha + ", asunto=" + asunto + ", sala=" + sala + "]";
-//    }
+
+    @Override
+    public String toString() {
+        return "Reunion [id=" + id + ", fecha=" + fecha + ", asunto=" + asunto + ", sala=" + sala + "]\n";
+    }
 
     @Override
     public int hashCode() {
@@ -166,12 +167,4 @@ public class Reunion {
         return id == other.id;
     }
 
-    @Override
-    public String toString() {
-        return "Reunion{" +
-                "id=" + id +
-                ", fecha=" + fecha +
-                ", asunto='" + asunto + '\'' +
-                '}';
-    }
 }

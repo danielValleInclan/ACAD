@@ -11,7 +11,7 @@ public class EntityManagerUtil {
 
         //en la siguiente línea se pone lo que pusimos en <persistence-unit name="OtraReunionMas"
         //en el fichero persistence.xml
-        EntityManagerFactory factory= Persistence.createEntityManagerFactory("otrareunionmas");
+        EntityManagerFactory factory= Persistence.createEntityManagerFactory("OtraReunionMas");
         EntityManager manager=factory.createEntityManager();
 
         return manager;

@@ -13,7 +13,7 @@ import com.accesodatos.hibernate.utiles.EntityManagerUtil;
 public abstract class AbstractDao<T> implements Dao<T> {
 
     private EntityManager entityManager = EntityManagerUtil.getEntityManager();
-    private Class<T> clazz;
+    private Class<T> clazz; // clazz es el nombre de la clase del objeto T
 
     @Override
     public Optional<T> get(int id) {

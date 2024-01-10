@@ -153,7 +153,7 @@ public class Reunion {
     public String toString() {
         //OJO con las llamadas recursivas a toString. Si mostramos la sala completa, llamará al toString de sala,
         //y éste a su vez, llama al toString de reunión, y el de reunión al de sala, y así sucesivamente, produciendo bucle de llamadas recursivas
-        return "Reunion [id=" + id + ", fecha=" + fecha + ", asunto=" + asunto + ", sala=" + sala.getDescripcion() + "]";
+        return "Reunion [id=" + id + ", fecha=" + fecha + ", asunto=" + asunto + ", sala=" + (sala != null ? sala.getDescripcion() : "no hay sala") + "]\n";
     }
     //NOTA: es recomendable, cada vez que tenemos una colección de objetos de tipo reunión
 //generar el método hashCode y el equals porque sirven para otros métodos,

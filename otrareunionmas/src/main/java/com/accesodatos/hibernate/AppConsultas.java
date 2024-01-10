@@ -12,24 +12,12 @@ import java.time.temporal.ChronoUnit;
 public class AppConsultas {
 
 	public static void main(String[] args) {
-//		SalaDao saladao= new SalaDao();
-//
-//		System.out.println("Salas para 6: "+ saladao.findSalasParaNpersonas(6));
-//		System.out.println("Salas para 3: "+ saladao.findSalasParaNpersonas(3));
-//
-//		System.out.println("Salas de más o igual de 3 y menos o igual de 6:"+saladao.findSalasAdecuadasParaNpersonas(3));
+		SalaDao saladao= new SalaDao();
 
-		// Añadir reunion
+		System.out.println("Salas para 6: "+ saladao.findSalasParaNpersonas(6));
+		System.out.println("Salas para 3: "+ saladao.findSalasParaNpersonas(3));
 
-		// sala
-
-		Sala salaNueva = new Sala("nueva sala 2", "sala de prueba", 50);
-		Reunion rNueva = new Reunion(
-				LocalDateTime.now().plus(2, ChronoUnit.DAYS),
-				"Reunion de año nuevo");
-
-		salaNueva.addReunion(rNueva);
-		rNueva.setSala(salaNueva);
+		System.out.println("Salas de más o igual de 3 y menos o igual de 6:"+saladao.findSalasAdecuadasParaNpersonas(3));
 	}
 
 }

@@ -1,11 +1,12 @@
 package com.accesodatos.hibernate.dao;
 
+import com.accesodatos.hibernate.dominio.Persona;
 import com.accesodatos.hibernate.dominio.Reunion;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.TypedQuery;
+import javax.persistence.criteria.*;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.List;
@@ -75,20 +76,20 @@ public class ReunionDao extends AbstractDao<Reunion> {
 
     //criteriaQuery.multiselect(joinReunion).where(cb.equal(fromPersona.get("numeroEmpleado"), numEmple));
     //ver en https://www.initgrep.com/posts/java/jpa/select-values-in-criteria-queries
-//
-//    public List<Reunion> reunionesParticipante(String numEmple){
-//        CriteriaBuilder cb= getEntityManager().getCriteriaBuilder();
-//        //Reunion porque quiero recuperar objetos reunión. Si por ejemplo fuera a hacer un count,
-//        //pondría CriteriaQuery<Long> y Long.class
-//        CriteriaQuery<Reunion> criteriaQuery =cb.createQuery(Reunion.class);
-//
-//        Root<Persona> fromPersona=criteriaQuery.from(Persona.class);
-//
-//        Join<Persona, Reunion> joinReunion = fromPersona.join("reuniones", JoinType.INNER);
-//
-//        criteriaQuery.select(joinReunion).where(cb.equal(fromPersona.get("numeroEmpleado"), numEmple));
-//        TypedQuery<Reunion> query=getEntityManager().createQuery(criteriaQuery);
-//        return query.getResultList();
-//    }
+
+    public List<Reunion> reunionesParticipante(String numEmple){
+        CriteriaBuilder cb= getEntityManager().getCriteriaBuilder();
+        //Reunion porque quiero recuperar objetos reunión. Si por ejemplo fuera a hacer un count,
+        //pondría CriteriaQuery<Long> y Long.class
+        CriteriaQuery<Reunion> criteriaQuery =cb.createQuery(Reunion.class);
+
+        Root<Persona> fromPersona=criteriaQuery.from(Persona.class);
+
+        Join<Persona, Reunion> joinReunion = fromPersona.join("reuniones", JoinType.INNER);
+
+        criteriaQuery.select(joinReunion).where(cb.equal(fromPersona.get("numeroEmpleado"), numEmple));
+        TypedQuery<Reunion> query=getEntityManager().createQuery(criteriaQuery);
+        return query.getResultList();
+    }
 
 }

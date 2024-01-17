@@ -1,4 +1,4 @@
-package com.accesoadatos.dao;
+package com.accesoadatos.andaluciaskills.dao;
 
 import java.util.List;
 import java.util.Optional;

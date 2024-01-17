@@ -1,4 +1,4 @@
-package com.accesoadatos.utiles;
+package com.accesoadatos.andaluciaskills.utiles;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;

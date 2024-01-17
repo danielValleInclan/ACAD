@@ -17,7 +17,7 @@ public class PuntuacionPrueba {
 
     @ManyToOne
 
-    @JoinColumn(name = "prueba_id")
+        @JoinColumn(name = "prueba_id")
 
     private Prueba prueba;
 

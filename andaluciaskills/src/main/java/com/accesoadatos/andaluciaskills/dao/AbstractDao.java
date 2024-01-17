@@ -1,6 +1,6 @@
-package com.accesoadatos.dao;
+package com.accesoadatos.andaluciaskills.dao;
 
-import com.accesoadatos.utiles.EntityManagerUtil;
+import com.accesoadatos.andaluciaskills.utiles.EntityManagerUtil;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;

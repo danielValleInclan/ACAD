@@ -28,8 +28,7 @@ public class Competidor {
     public Competidor() {
     }
 
-    public Competidor(int id, String centro, String nombre, Usuario usuario) {
-        this.id = id;
+    public Competidor(String centro, String nombre, Usuario usuario) {
         this.centro = centro;
         this.nombre = nombre;
     }

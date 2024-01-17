@@ -19,7 +19,7 @@ public class Prueba {
     public Prueba() {
     }
 
-    public Prueba(int id, String nombre) {
+    public Prueba(String nombre) {
         this.id = id;
         this.nombre = nombre;
     }

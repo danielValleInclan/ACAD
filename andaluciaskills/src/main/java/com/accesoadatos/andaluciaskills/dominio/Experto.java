@@ -18,8 +18,7 @@ public class Experto {
     public Experto() {
     }
 
-    public Experto(int id, String nombre, Especialidad especialidad, Usuario usuario) {
-        this.id = id;
+    public Experto(String nombre, Especialidad especialidad, Usuario usuario) {
         this.nombre = nombre;
         this.especialidad = especialidad;
         this.usuario = usuario;

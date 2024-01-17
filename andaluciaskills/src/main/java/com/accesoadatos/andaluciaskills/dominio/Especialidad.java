@@ -24,8 +24,7 @@ public class Especialidad {
     public Especialidad() {
     }
 
-    public Especialidad(int id, int codigo, String nombre) {
-        this.id = id;
+    public Especialidad(int codigo, String nombre) {
         this.codigo = codigo;
         this.nombre = nombre;
     }

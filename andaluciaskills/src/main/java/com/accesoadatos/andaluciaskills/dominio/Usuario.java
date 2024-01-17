@@ -18,8 +18,7 @@ public class Usuario {
     public Usuario() {
     }
 
-    public Usuario(int id, String username, String passwd, Experto experto) {
-        this.id = id;
+    public Usuario(String username, String passwd, Experto experto) {
         this.username = username;
         this.passwd = passwd;
         this.experto = experto;

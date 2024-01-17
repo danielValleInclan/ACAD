@@ -21,7 +21,7 @@ public class App
 
         //añado un usuario
 
-        Usuario usuarioN = new Usuario("Daniel", "Passwd", null);
+        Usuario usuarioN = new Usuario("Daniel", "Passwd");
         usuarioDao.save(usuarioN);
 
     }

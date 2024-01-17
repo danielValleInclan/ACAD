@@ -1,6 +1,7 @@
 package com.accesoadatos.andaluciaskills.dominio;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "especialidad")
@@ -14,7 +15,7 @@ public class Especialidad {
     private String nombre;
 
     @OneToMany(mappedBy = "especialidad")
-    private Experto experto;
+    private Set<Experto> expertos;
 
     @ManyToOne
     @JoinColumn
@@ -27,6 +28,22 @@ public class Especialidad {
         this.id = id;
         this.codigo = codigo;
         this.nombre = nombre;
+    }
+
+    public Set<Experto> getExpertos() {
+        return expertos;
+    }
+
+    public void setExpertos(Set<Experto> expertos) {
+        this.expertos = expertos;
+    }
+
+    public Competidor getCompetidor() {
+        return competidor;
+    }
+
+    public void setCompetidor(Competidor competidor) {
+        this.competidor = competidor;
     }
 
     public int getId() {

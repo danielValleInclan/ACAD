@@ -11,13 +11,26 @@ public class Usuario {
     private String username;
     private String passwd;
 
+    @OneToOne
+    @JoinColumn
+    private Experto experto;
+
     public Usuario() {
     }
 
-    public Usuario(int id, String username, String passwd) {
+    public Usuario(int id, String username, String passwd, Experto experto) {
         this.id = id;
         this.username = username;
         this.passwd = passwd;
+        this.experto = experto;
+    }
+
+    public Experto getExperto() {
+        return experto;
+    }
+
+    public void setExperto(Experto experto) {
+        this.experto = experto;
     }
 
     public int getId() {

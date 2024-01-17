@@ -10,10 +10,10 @@ public class Experto {
     private int id;
     private String nombre;
     @ManyToOne
-    @JoinColumn(name = "id_especialidad")
+    @JoinColumn
     private Especialidad especialidad;
     @OneToOne
-    @JoinColumn(name = "id_usuario")
+    @JoinColumn
     private Usuario usuario;
     public Experto() {
     }

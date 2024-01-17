@@ -14,7 +14,7 @@ public class Competidor {
     private String centro;
     private String nombre;
     @OneToMany(mappedBy = "competidor")
-    private Set<Especialidad> especialidades = new HashSet<>();
+    private Set<Especialidad> especialidades;
 
     @ManyToMany
     @JoinTable(

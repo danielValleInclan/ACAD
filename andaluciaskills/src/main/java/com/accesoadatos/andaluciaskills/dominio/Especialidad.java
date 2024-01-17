@@ -8,8 +8,17 @@ public class Especialidad {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
+    @Column(unique = true)
     private int codigo;
     private String nombre;
+
+    @OneToMany(mappedBy = "especialidad")
+    private Experto experto;
+
+    @ManyToOne
+    @JoinColumn
+    private Competidor competidor;
 
     public Especialidad() {
     }

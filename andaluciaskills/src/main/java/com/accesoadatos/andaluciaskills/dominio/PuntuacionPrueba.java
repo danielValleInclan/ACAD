@@ -1,10 +1,11 @@
 package com.accesoadatos.andaluciaskills.dominio;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "puntuacion_prueba")
-public class PuntuacionPrueba {
+public class PuntuacionPrueba implements Serializable {
     @Id
 
     @ManyToOne

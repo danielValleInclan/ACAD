@@ -24,11 +24,13 @@ public class App
         ExpertoDao expertoDao = new ExpertoDao();
 
         // Primera consulta
+        System.out.println("*** Consulta 1 ***");
         List<String> centros = competidorDao.getCentros();
         System.out.println(centros);
 
         // Segunda consulta
 
+        System.out.println("*** Consulta 2 ***");
         List<Object[]> puntuaciones = puntuacionPruebaDao.getPuntuacionesPruebaCompetidor();
         System.out.println("Puntuacion  Prueba  Competidor");
         for (Object[] puntuacion : puntuaciones) {
@@ -39,6 +41,8 @@ public class App
         }
 
 
+        // tercera consulta
+        System.out.println("*** Consulta 3 ***");
         List<Object[]> usuairosExpertos = expertoDao.getUsernamesDeExpertos();
         for (Object[] resultado : usuairosExpertos) {
             String nombreExperto = (String) resultado[0];

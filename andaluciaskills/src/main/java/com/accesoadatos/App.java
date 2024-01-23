@@ -1,9 +1,6 @@
 package com.accesoadatos;
 
-import com.accesoadatos.andaluciaskills.dao.CompetidorDao;
-import com.accesoadatos.andaluciaskills.dao.PruebaDao;
-import com.accesoadatos.andaluciaskills.dao.PuntuacionPruebaDao;
-import com.accesoadatos.andaluciaskills.dao.UsuarioDao;
+import com.accesoadatos.andaluciaskills.dao.*;
 import com.accesoadatos.andaluciaskills.dominio.Competidor;
 import com.accesoadatos.andaluciaskills.dominio.Prueba;
 import com.accesoadatos.andaluciaskills.dominio.Usuario;
@@ -24,6 +21,7 @@ public class App
         CompetidorDao competidorDao = new CompetidorDao();
         PruebaDao pruebaDao = new PruebaDao();
         PuntuacionPruebaDao puntuacionPruebaDao = new PuntuacionPruebaDao();
+        ExpertoDao expertoDao = new ExpertoDao();
 
         // Primera consulta
         List<String> centros = competidorDao.getCentros();
@@ -41,5 +39,12 @@ public class App
         }
 
 
+        List<Object[]> usuairosExpertos = expertoDao.getUsernamesDeExpertos();
+        for (Object[] resultado : usuairosExpertos) {
+            String nombreExperto = (String) resultado[0];
+            String usernameUsuario = (String) resultado[1];
+
+            System.out.println("Nombre Experto: " + nombreExperto + ", Username Usuario: " + usernameUsuario);
+        }
     }
 }

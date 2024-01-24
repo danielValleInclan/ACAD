@@ -5,6 +5,8 @@ import java.util.List;
 import javax.persistence.Query;
 
 import dominio.Ejemplar;
+import dominio.Libro;
+import dominio.Prestamo;
 
 public class EjemplarDao extends AbstractDao<Ejemplar> {
 
@@ -16,6 +18,13 @@ public class EjemplarDao extends AbstractDao<Ejemplar> {
 		String qlString=" FROM "+Ejemplar.class.getName() +" WHERE libro.editorial='"+editorial+"'";
 		Query query = getEntityManager().createQuery(qlString);
 				
+		return query.getResultList();
+	}
+
+	public List<Ejemplar> getEjemplaresLibrosMasPaginas(int paginas){
+		String qlString=" FROM "+ Libro.class.getName() +" WHERE paginas > " + paginas;
+		Query query = getEntityManager().createQuery(qlString);
+
 		return query.getResultList();
 	}
 	

@@ -122,5 +122,13 @@ public class App {
 		* */
 
 		System.out.println("Prestamos no devueltos: " + prestamoDao.getPrestamosNoDevueltos());
+
+		/*
+		*
+		* Septima opcion
+		*
+		* */
+
+		System.out.println("Ejemplares de mas de 30 páginas: " + ejemplarDao.getEjemplaresLibrosMasPaginas(30));
 	}
 }

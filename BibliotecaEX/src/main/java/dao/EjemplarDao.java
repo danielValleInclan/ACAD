@@ -21,11 +21,13 @@ public class EjemplarDao extends AbstractDao<Ejemplar> {
 		return query.getResultList();
 	}
 
-	public List<Ejemplar> getEjemplaresLibrosMasPaginas(int paginas){
-		String qlString=" FROM "+ Libro.class.getName() +" WHERE paginas > " + paginas;
+	public List<Ejemplar> getEjemplaresLibrosMasPaginas(int paginas) {
+		String qlString = "SELECT e FROM " + Ejemplar.class.getName() + " e WHERE e.libro.paginas > :paginas";
 		Query query = getEntityManager().createQuery(qlString);
+		query.setParameter("paginas", paginas);
 
 		return query.getResultList();
 	}
-	
+
+
 }

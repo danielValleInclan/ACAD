@@ -20,6 +20,7 @@ public class Prestamo implements Serializable{
 
 	@Id
 	@ManyToOne
+	@JoinColumn(name = "usuario_id")
 	private Usuario usuario;
 	@Id
 	@ManyToOne

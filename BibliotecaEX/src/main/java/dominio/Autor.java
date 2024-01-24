@@ -17,8 +17,13 @@ public class Autor {
 
 	@Column(unique = true)
 	private String nombre;
-	@ManyToMany(mappedBy = "libro")
-	Set<Libro> libros;
+	@ManyToMany
+	@JoinTable(
+			name = "autor_libro",
+			joinColumns = @JoinColumn(name = "autor_id"),
+			inverseJoinColumns = @JoinColumn(name = "libro_id")
+	)
+	Set<Libro> libros = new HashSet<>();
 	
 	public Autor() {
 		super();

@@ -19,9 +19,6 @@ public class Usuario {
 	@Column(unique = true)
 	private String nombre;
 
-	@ManyToMany
-	Set<Ejemplar> ejemplaresPrestados;
-
 	public Usuario() {
 		super();
 	}
@@ -43,23 +40,23 @@ public class Usuario {
 		return id;
 	}
 
-	public Set<Ejemplar> getEjemplaresPrestados() {
-		return ejemplaresPrestados;
-	}
-
-	public void addEjemplarPrestado(Ejemplar ejemplarPrestado) {
-		this.ejemplaresPrestados.add(ejemplarPrestado);
-		if(ejemplarPrestado!=null && !ejemplarPrestado.getUsuarios().contains(this)) {
-			ejemplarPrestado.addUsuario(this);
-		}
-	}
+//	public Set<Ejemplar> getEjemplaresPrestados() {
+//		return ejemplaresPrestados;
+//	}
+//
+//	public void addEjemplarPrestado(Ejemplar ejemplarPrestado) {
+//		this.ejemplaresPrestados.add(ejemplarPrestado);
+//		if(ejemplarPrestado!=null && !ejemplarPrestado.getUsuarios().contains(this)) {
+//			ejemplarPrestado.addUsuario(this);
+//		}
+//	}
 	
-	public void removeEjemplarPrestado(Ejemplar ejemplarPrestado) {
-		this.ejemplaresPrestados.remove(ejemplarPrestado);
-		if(ejemplarPrestado!=null && ejemplarPrestado.getUsuarios().contains(this)) {
-			ejemplarPrestado.removeUsuario(this);
-		}
-	}
+//	public void removeEjemplarPrestado(Ejemplar ejemplarPrestado) {
+//		this.ejemplaresPrestados.remove(ejemplarPrestado);
+//		if(ejemplarPrestado!=null && ejemplarPrestado.getUsuarios().contains(this)) {
+//			ejemplarPrestado.removeUsuario(this);
+//		}
+//	}
 
 	@Override
 	public int hashCode() {

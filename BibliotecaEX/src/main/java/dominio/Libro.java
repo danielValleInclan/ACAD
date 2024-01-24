@@ -30,7 +30,7 @@ public class Libro {
 			joinColumns = @JoinColumn(name = "libro_id"),
 			inverseJoinColumns = @JoinColumn(name = "autor_id")
 	)
-	Set<Autor> autores;
+	Set<Autor> autores = new HashSet<>();
 
 	@OneToMany(mappedBy = "libro")
 	Set<Ejemplar> ejemplares;

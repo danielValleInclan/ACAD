@@ -23,13 +23,8 @@ public class Ejemplar {
 	@JoinColumn
 	private Libro libro;
 
-	@ManyToMany(mappedBy = "ejemplar")
-	@JoinTable(
-			name = "prestamo",
-			joinColumns = @JoinColumn(name = "ejemplar_id"),
-			inverseJoinColumns = @JoinColumn(name = "usuario_id")
-	)
-	private Set<Usuario> usuarios=new HashSet<>();
+//	@OneToMany
+//	private Set<Usuario> usuarios=new HashSet<>();
 
 	public Ejemplar() {
 		super();
@@ -76,23 +71,23 @@ public class Ejemplar {
 		this.libro = libro;
 	}
 	
-	public Set<Usuario> getUsuarios() {
-		return usuarios;
-	}
-
-	public void addUsuario(Usuario usuario) {
-		this.usuarios.add(usuario);
-		if(usuario!=null && !usuario.getEjemplaresPrestados().contains(this)) {
-			usuario.addEjemplarPrestado(this);
-		}
-	}
-	
-	public void removeUsuario(Usuario usuario) {
-		this.usuarios.remove(usuario);
-		if(usuario!=null && usuario.getEjemplaresPrestados().contains(this)) {
-			usuario.removeEjemplarPrestado(this);
-		}
-	}
+//	public Set<Usuario> getUsuarios() {
+//		return usuarios;
+//	}
+//
+//	public void addUsuario(Usuario usuario) {
+//		this.usuarios.add(usuario);
+//		if(usuario!=null && !usuario.getEjemplaresPrestados().contains(this)) {
+//			usuario.addEjemplarPrestado(this);
+//		}
+//	}
+//
+//	public void removeUsuario(Usuario usuario) {
+//		this.usuarios.remove(usuario);
+//		if(usuario!=null && usuario.getEjemplaresPrestados().contains(this)) {
+//			usuario.removeEjemplarPrestado(this);
+//		}
+//	}
 
 	@Override
 	public int hashCode() {

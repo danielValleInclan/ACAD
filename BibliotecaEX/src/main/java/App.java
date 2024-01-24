@@ -101,9 +101,26 @@ public class App {
 		* */
 
 		System.out.println("Recuperando un Objeto de la bd ...");
-		System.out.println(usuarioDao.getAll().get(0));
+		Prestamo prestamoRescatado = prestamoDao.getAll().get(1);
+		System.out.println(prestamoRescatado);
 		System.out.println();
 
+		/*
+		*
+		* Quinta acción
+		*
+		* */
 
+		prestamoDao.delete(prestamoRescatado);
+		System.out.println("Borrado");
+
+
+		/*
+		*
+		* Sexta acción
+		*
+		* */
+
+		System.out.println("Prestamos no devueltos: " + prestamoDao.getPrestamosNoDevueltos());
 	}
 }

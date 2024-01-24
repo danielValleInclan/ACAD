@@ -11,11 +11,11 @@ public class PrestamoDao extends AbstractDao<Prestamo> {
 		setClazz(Prestamo.class);
 	}
 
-	public List<Prestamo> getPrestamosNoDevueltos(){
-		String qlString=" FROM "+ Prestamo.class.getName() +" WHERE fecha_devolucion.prestamo=null";
+	public List<Prestamo> getPrestamosNoDevueltos() {
+		String qlString = "FROM " + Prestamo.class.getName() + " WHERE fechaDevolucion IS NULL";
 		Query query = getEntityManager().createQuery(qlString);
 
 		return query.getResultList();
 	}
-	
+
 }

@@ -10,7 +10,7 @@ public class EntityManagerUtil {
 	public static EntityManager getEntityManager() {
 		//en la siguiente línea se pone lo que pusimos en <persistence-unit name="OtraReunionMas" 
 		//en el fichero persistence.xml
-		EntityManagerFactory factory=Persistence.createEntityManagerFactory("BibliotecaEX");
+		EntityManagerFactory factory=Persistence.createEntityManagerFactory("bibliotecas");
 		EntityManager manager=factory.createEntityManager();
 
 		return manager;

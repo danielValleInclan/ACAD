@@ -1,30 +1,39 @@
 package dominio;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 
 @Entity
+@Table(name = "libro")
 public class Libro {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
 	private String titulo;
 
+	@Column(unique = true)
 	private String isbn;
 
 	private String editorial;
 
 	private int paginas;
 
+	@ManyToMany
+	@JoinTable(
+			name = "autor_libro",
+			joinColumns = @JoinColumn(name = "libro_id"),
+			inverseJoinColumns = @JoinColumn(name = "autor_id")
+	)
+	Set<Autor> autores;
+
+	@OneToMany(mappedBy = "libro")
+	Set<Ejemplar> ejemplares;
 
 	public Libro() {
 		super();

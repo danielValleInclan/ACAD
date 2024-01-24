@@ -18,12 +18,14 @@ public class Prestamo implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 
-
+	@Id
+	@ManyToOne
 	private Usuario usuario;
-	
-
+	@Id
+	@ManyToOne
+	@JoinColumn(name = "ejemplar_id")
 	private Ejemplar ejemplar;
-	
+
 	@Column(name="fecha_prestamo")
 	private LocalDateTime fechaPrestamo=LocalDateTime.now();
 	

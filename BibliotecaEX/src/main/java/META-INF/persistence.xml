@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
-  <persistence-unit name="BibliotecaEX" transaction-type="RESOURCE_LOCAL">
+  <persistence-unit name="andaluciaskills" transaction-type="RESOURCE_LOCAL">
     <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
     <properties>
+      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/bibliotecas?zeroDateTimeBehavior=convertToNull&amp;serverTimezone=UTC"/>
+      <property name="javax.persistence.jdbc.user" value="bibliotecasuser"/>
+      <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
+      <property name="javax.persistence.jdbc.password" value="bibliotecaspassword"/>
 
-      
       <!--update:el propio hibernate se encargará de actualizar la bd si hacemos cambios por código-->
-      <!--  property name="javax.persistence.schema-generation.database.action" value="update"/>-->
-      <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
-      <property name="hibernate.show_sql" value="true"/>
+      <property name="javax.persistence.schema-generation.database.action" value="update"/>
     </properties>
   </persistence-unit>
 </persistence>

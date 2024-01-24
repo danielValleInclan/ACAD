@@ -4,26 +4,31 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 @Entity
+@Table(name = "ejemplar")
 public class Ejemplar {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
+	@Column(unique = true)
 	private String codigo;
 	
 	public String localizacion;
-	
+
+	@ManyToOne
+	@JoinColumn
 	private Libro libro;
-	
+
+	@ManyToMany(mappedBy = "ejemplar")
+	@JoinTable(
+			name = "prestamo",
+			joinColumns = @JoinColumn(name = "ejemplar_id"),
+			inverseJoinColumns = @JoinColumn(name = "usuario_id")
+	)
 	private Set<Usuario> usuarios=new HashSet<>();
 
 	public Ejemplar() {

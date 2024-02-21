@@ -1,5 +1,3 @@
-import com.mongodb.ConnectionString;
-import com.mongodb.MongoClientSettings;
 import com.mongodb.client.*;
 
 import org.bson.Document;
@@ -10,18 +8,17 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        ConnectionString connectionString = new ConnectionString("mongodb://localhost:27017");
-        MongoClientSettings settings = MongoClientSettings.builder().applyConnectionString(connectionString).build();
-        MongoClient mongoClient = MongoClients.create(settings);
-        MongoDatabase db = mongoClient.getDatabase("F1DB");
+
+        MongoDBController mongoDBController = new MongoDBController("mongodb://localhost:27017", "F1DB");
+
 
         // Eliminar datos existentes
-        db.getCollection("pilotos").deleteMany(new Document());
-        db.getCollection("equipos").deleteMany(new Document());
+        mongoDBController.deleteCollection("pilotos");
+        mongoDBController.deleteCollection("equipos");
 
         // Creación de colecciones
-        MongoCollection<Document> pilotosCollection = db.getCollection("pilotos");
-        MongoCollection<Document> equiposCollection = db.getCollection("equipos");
+        MongoCollection<Document> pilotosCollection = mongoDBController.createCollection("pilotos");
+        MongoCollection<Document> equiposCollection = mongoDBController.createCollection("equipos");
 
         // Insercción de piloto
         List<Document> documentsPilotos = new ArrayList<>();

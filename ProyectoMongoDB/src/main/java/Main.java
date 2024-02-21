@@ -2,14 +2,13 @@ import com.mongodb.ConnectionString;
 import com.mongodb.MongoClientSettings;
 import com.mongodb.client.*;
 
-import com.mongodb.client.model.*;
 import org.bson.Document;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class Create {
+public class Main {
     public static void main(String[] args) {
         ConnectionString connectionString = new ConnectionString("mongodb://localhost:27017");
         MongoClientSettings settings = MongoClientSettings.builder().applyConnectionString(connectionString).build();
@@ -109,76 +108,39 @@ public class Create {
         equiposCollection.insertMany(documentsEquipos);
 
         // Consultas
+        PilotsQuerys pilotsQuerys = new PilotsQuerys();
+        TeamsQuerys teamsQuerys = new TeamsQuerys();
 
-        MongoCursor<Document> cursor; // Cursor
-        Document filtro; // Filtro
-        Document actualizacion; // Actualización
+        System.out.println("Buscar piloto por nombre / Fernando Alonso");
+        pilotsQuerys.findByName(pilotosCollection, "Fernando Alonso");
 
-        // Buscar pilotos de nacionalidad británica
-        filtro = new Document("nacionalidad", "Británico");
-        cursor = pilotosCollection.find(filtro).iterator();
-        System.out.println("Nacionlidad Britanica");
-        while (cursor.hasNext()) {
-            System.out.println(cursor.next());
-        }
-
-        // Buscar pilotos de nacionalidad británica
-        filtro = new Document("nacionalidad", "Español");
-        cursor = pilotosCollection.find(filtro).iterator();
-        System.out.println("Nacionlidad Español");
-        while (cursor.hasNext()) {
-            System.out.println(cursor.next());
-        }
-
-
-        cursor = pilotosCollection.find(new Document("str", "hello")).iterator();
-        while (cursor.hasNext()) {
-            System.out.println(cursor.next());
-        }
+        System.out.println("Buscar piloto por nacionalidad / Español");
+        pilotsQuerys.findByNationality(pilotosCollection, "Español");
 
         // Actualizaciones
 
         // Actualizar puntos de Lewis Hamilton
-        filtro = new Document("nombre", "Lewis Hamilton");
-        actualizacion = new Document("$set", new Document("puntos", 400));
-        pilotosCollection.updateOne(filtro, actualizacion);
-
+        pilotsQuerys.updatePoints(pilotosCollection, "Lewis Hamilton", 600);
         // Añadir un nuevo piloto al array de pilotos_actuales de Mercedes
-        filtro = new Document("nombre", "Mercedes");
-        actualizacion = new Document("$push", new Document("pilotos_actuales", "George Russell"));
-        equiposCollection.updateOne(filtro, actualizacion);
-
+        teamsQuerys.addCurrentPilot(equiposCollection, "Mercedes", "Geoge Russell");
 
         // Eliminación
         // Borrar el equipo Red Bull Racing
-        filtro = new Document("nombre", "Red Bull Racing");
-        equiposCollection.deleteOne(filtro);
-
+        teamsQuerys.delete(equiposCollection, "Red Bull Racing");
 
         // Agregación pipeline
-        List<Document> pipeline = Arrays.asList(
-                new Document("$match", new Document("nacionalidad", "Británico")),
-                new Document("$group", new Document("_id", null).append("total", new Document("$sum", 1)))
-        );
-        AggregateIterable<Document> resultado = pilotosCollection.aggregate(pipeline);
-        System.out.println(resultado.first().toJson());
+
+        pilotsQuerys.pipelineGroupByNationality(pilotosCollection, "Español");
 
         // Consultas utilizando funciones para arrays
         // Buscar equipos que tengan a Lewis Hamilton como piloto actual
-        filtro = new Document("pilotos_actuales", "Lewis Hamilton");
-        cursor = equiposCollection.find(filtro).iterator();
+
         System.out.println("Buscar equipos que tengan a Lewis Hamilton como piloto actual");
-        while (cursor.hasNext()) {
-            System.out.println(cursor.next());
-        }
+        teamsQuerys.findByCurrentPilot(equiposCollection, "Lewis Hamilton");
 
         // Consultas sobre documentos enlazados
         // Obtener todos los pilotos que pertenecieron al equipo McLaren
-        filtro = new Document("historial_equipos", "McLaren");
-        cursor = pilotosCollection.find(filtro).iterator();
         System.out.println("Obtener todos los pilotos que pertenecieron al equipo McLaren");
-        while (cursor.hasNext()) {
-            System.out.println(cursor.next());
-        }
+        pilotsQuerys.findByTeam(pilotosCollection,"McLaren");
     }
 }

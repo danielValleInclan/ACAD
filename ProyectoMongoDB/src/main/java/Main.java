@@ -20,7 +20,7 @@ public class Main {
         MongoCollection<Document> pilotosCollection = mongoDBController.createCollection("pilotos");
         MongoCollection<Document> equiposCollection = mongoDBController.createCollection("equipos");
 
-        // Insercción de piloto
+        // Insercción
         List<Document> documentsPilotos = new ArrayList<>();
         List<Document> documentsEquipos = new ArrayList<>();
 
@@ -117,6 +117,7 @@ public class Main {
         // Actualizaciones
 
         // Actualizar puntos de Lewis Hamilton
+        System.out.println("Actualizar puntos de Lewis Hamilton");
         pilotsQuerys.updatePoints(pilotosCollection, "Lewis Hamilton", 600);
         // Añadir un nuevo piloto al array de pilotos_actuales de Mercedes
         teamsQuerys.addCurrentPilot(equiposCollection, "Mercedes", "Geoge Russell");

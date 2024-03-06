@@ -28,7 +28,7 @@ public class PilotsQuerys {
         }
     }
 
-    public void updatePoints (MongoCollection<Document> collection, String name, int points) {
+    public void updatePoints(MongoCollection<Document> collection, String name, int points) {
         filtro = new Document("nombre", name);
         actualizacion = new Document("$set", new Document("puntos", points));
         collection.updateOne(filtro, actualizacion);
@@ -37,10 +37,19 @@ public class PilotsQuerys {
     public void pipelineGroupByNationality(MongoCollection<Document> collection, String nationality) {
         List<Document> pipeline = Arrays.asList(
                 new Document("$match", new Document("nacionalidad", nationality)),
-                new Document("$group", new Document("_id", null).append("total", new Document("$sum", 1)))
+                new Document("$group", new Document("_id", "$nacionalidad")
+                        .append("total", new Document("$sum", 1))),
+                new Document("$sort", new Document("total", -1)),
+                new Document("$limit", 5),
+                new Document("$project", new Document("_id", 0)
+                        .append("nacionalidad", "$_id")
+                        .append("total", 1))
         );
-                AggregateIterable<Document> resultado = collection.aggregate(pipeline);
-                System.out.println(resultado.first().toJson());
+
+        AggregateIterable<Document> resultado = collection.aggregate(pipeline);
+        for (Document doc : resultado) {
+            System.out.println(doc.toJson());
+        }
     }
 
     public void findByTeam(MongoCollection<Document> collection, String team){
